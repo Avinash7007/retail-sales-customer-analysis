@@ -1,142 +1,129 @@
+# 🚀 Retail Sales & Customer Analysis (Power BI)
 
-# 🚀 Retail_Sales_and_Customer_Analysis
+An end-to-end **business intelligence** project built in **Power BI**, analyzing eCommerce sales performance using a Superstore-style dataset.
+This project focuses on uncovering insights across **sales trends, profitability, fulfillment performance, and customer behavior** to support data-driven decision-making.
 
-An end-to-end data analysis and visualization project built in **Power BI**, focused on eCommerce sales performance using Superstore-style data.
+---
+
+## 📌 Problem Statement
+
+Businesses often struggle to track profitability drivers, customer segments, and fulfillment efficiency across regions and product categories.
+This project builds an interactive BI solution to monitor KPIs, identify growth opportunities, and highlight operational gaps.
 
 ---
 
 ## 📦 Dataset Overview
 
-This dashboard analyzes sales records, shipping performance, profit margins, and customer behavior based on:
+The dataset contains transactional-level eCommerce data including:
 
-- Order & delivery dates
-- Customer and product segmentation
-- Sales, profit, and shipping cost metrics
-- Regions, categories, and sub-categories
-
----
-
-## 📊 Key KPIs Tracked
-
-| KPI                          | Description |
-|-----------------------------|-------------|
-| **Total Sales**             | Total revenue from orders |
-| **Profit Margin (%)**       | (Profit ÷ Sales) × 100 |
-| **Average Order Value (AOV)** | Sales ÷ No. of Orders |
-| **Running Total Sales**     | Cumulative sales over time |
-| **Average Delivery Time**   | Avg. days from order to delivery |
-| **Late Delivery %**         | % of orders shipped after expected date |
-| **Top N Products by Sales** | Dynamically filtered top products |
-| **ASPC**                    | Average Selling Price per Customer |
-| **Orders per Customer**     | Order frequency |
+* Order & delivery dates
+* Customer segmentation & geography
+* Product categories & sub-categories
+* Sales, profit, and discount metrics
+* Shipping modes and performance
 
 ---
 
-## 🛠 Tools Used
-- **MYSQL**
-- **Power BI**
-- **DAX**
+## 🎯 Key KPIs Tracked
 
+| KPI                           | Description                     |
+| ----------------------------- | ------------------------------- |
+| **Total Sales**               | Total revenue generated         |
+| **Total Profit**              | Net profit across transactions  |
+| **Profit Margin (%)**         | Profit ÷ Sales                  |
+| **Average Order Value (AOV)** | Sales ÷ Orders                  |
+| **Running Total Sales**       | Time-based cumulative trend     |
+| **Average Delivery Time**     | Avg. order-to-delivery duration |
+| **Late Delivery %**           | % delayed shipments             |
+| **Top Products by Sales**     | Highest-performing SKUs         |
+| **ASPC**                      | Avg selling price per customer  |
+| **Orders per Customer**       | Purchase frequency              |
 
+---
 
-[Upload
-# 📊 DAX Measures for Supersales / Novamart Power BI Dashboard
+## 🛠 Tools & Technologies
 
-This file documents the core DAX measures used in the Power BI project.
+* **MySQL** – Data extraction & transformation
+* **Power BI** – Data modeling & visualization
+* **DAX** – KPI and metric calculations
 
-## 🔹 1. Total Sales
-```dax
-Total_Sales = SUM(fact_sales[SalesAmount])
+---
+
+## 📊 Dashboard Overview
+
+### 🔹 Sales & Profit Analysis
+
+* Tracks overall sales growth and profitability trends
+* Highlights regional performance differences
+* Identifies underperforming categories
+
+### 🔹 Customer Segmentation Analysis
+
+* Segments customers by value and behavior
+* Identifies high-frequency and high-value customers
+* Enables targeted marketing strategies
+
+---
+
+## 📈 Key Business Insights
+
+### 🛍️ Sales Insights
+
+* Sales peak in **Q4**, indicating strong seasonal demand.
+* West and Central regions drive the majority of revenue.
+
+### 📦 Fulfillment Insights
+
+* Avg delivery time ≈ **2.5 days**, but delays occur in some regions.
+* ~18% late deliveries suggest logistical inefficiencies.
+
+### 💰 Profitability Insights
+
+* Technology category drives margins; Furniture underperforms.
+* Discounts and returns reduce profitability in some segments.
+
+### 🧍 Customer Behavior Insights
+
+* High-value customers show strong repeat purchasing behavior.
+* Urban customers contribute higher AOV and frequency.
+
+---
+
+## 🧠 Business Recommendations
+
+* Optimize logistics in high-delay regions
+* Promote high-margin product categories
+* Target repeat and high-value customers with campaigns
+* Reduce discount dependency in low-margin segments
+
+---
+
+## 📸 Dashboard Preview
+
+![Customer Segmentation Dashboard](https://github.com/user-attachments/assets/72b8eefa-db51-47f4-89e2-03826195df3b)
+
+![Sales and Profit Dashboard](https://github.com/user-attachments/assets/6f381fb9-5d6d-4f71-a927-ec7039eacfe4)
+
+---
+
+## 📂 Repository Structure
+
+```
+retail-sales-customer-analysis/
+│
+├── Retail-Sales-Customer-Analysis.pbix
+├── dataset/
+├── dashboards/
+├── docs/
+└── README.md
 ```
 
-## 🔹 2. Total Orders
-```dax
-Total_Orders = DISTINCTCOUNT(fact_sales[OrderID])
-```
+---
 
-## 🔹 3. Total Profit
-```dax
-Total_Profit = SUM(fact_sales[SalesAmount]) - SUM(fact_sales[CostAmount])
-```
+## 📬 Contact
 
-## 🔹 4. Profit Margin (%)
-```dax
-Profit_Margin_% = DIVIDE([Total_Profit], [Total_Sales], 0) * 100
-```
+If you’d like to discuss this project or collaborate:
 
-## 🔹 5. Average Order Value (AOV)
-```dax
-AOV = DIVIDE([Total_Sales], [Total_Orders], 0)
-```
-
-## 🔹 6. Average Profit per Order
-```dax
-Avg_Profit_per_Order = DIVIDE([Total_Profit], [Total_Orders], 0)
-```
-
-## 🔹 7. Average Delivery Time (Days)
-```dax
-Avg_Delivery_Time = 
-DIVIDE(
-    SUMX(fact_orders, DATEDIFF(fact_orders[OrderDate], fact_orders[DeliveryDate], DAY)),
-    COUNTROWS(fact_orders),
-    0
-)
-```
-
-## 🔹 8. ASPC (Avg Selling Price per Customer)
-```dax
-ASPC = DIVIDE([Total_Sales], DISTINCTCOUNT(fact_sales[CustomerID]), 0)
-```
-
-## 🔹 9. Orders per Customer
-```dax
-Orders_per_Customer = DIVIDE([Total_Orders], DISTINCTCOUNT(fact_sales[CustomerID]), 0)
-```
-
-[Uploading
-# 🔍 Business Insights from Supersales / Novamart Dashboard
-
-This section summarizes key insights uncovered using the Power BI visualizations.
-
-## 🛍️ Sales Insights
-- 📈 **Total Sales** are highest in the **West** and **Central** regions.
-- 🔝 **Top-selling products** are from the **Electronics** and **Office Supplies** categories.
-- 🕐 **Sales spike in Q4** indicating seasonal demand or holiday campaigns.
-
-## 📦 Fulfillment & Delivery
-- 🚚 **Average Delivery Time** is 2.5 days, but some regions face delays > 5 days.
-- ❗ **Late Deliveries** account for ~18% — especially high in the South region.
-- 📦 **Standard Class shipping** has the most delays, suggesting logistic issues.
-
-## 💰 Profitability Metrics
-- 💹 **Profit Margin** is strong (~29%) but varies across categories — Furniture underperforms.
-- 💸 **Average Profit per Order** is ₹266 — could be improved by bundling offers or upselling.
-- 📊 **High returns/discounts** in some categories are pulling margins down.
-
-## 🧍 Customer Behavior
-- 💳 **ASPC (Average Selling Price per Customer)** is ₹1,100 — varies significantly by segment.
-- 📦 Customers in urban regions tend to place higher-value, more frequent orders.
-
-## 📊 Summary Recommendations
-- Improve delivery logistics in southern region to reduce late orders.
-- Promote high-margin categories (like tech accessories).
-- Run targeted campaigns for repeat buyers and high ASPC segments.
- Insights_summary.md…]()
-
-
-## 🧠 Insights Enabled
-
-- 🔍 Identify best-selling products and underperformers
-- 📦 Analyze shipping performance and delays
-- 🧍 Understand customer buying behavior
-- 🌍 Evaluate regional sales trends
-
-![Screenshot 2025-06-28 192202](https://github.com/user-attachments/assets/7f9311c9-6ee3-42c1-a6bc-e532dc6fc8e6)
-
-![Screenshot 2025-06-28 192230](https://github.com/user-attachments/assets/0e328b44-4043-455f-a0da-7df6c9db822d)
-
-![Screenshot 2025-07-08 131152](https://github.com/user-attachments/assets/664e79b4-9927-4644-970b-ef0672c879c9)
-
-
-
+* 📧 Email: [dubeyavinash157@gmail.com](mailto:dubeyavinash157@gmail.com)
+* 💼 LinkedIn: https://www.linkedin.com/in/avinash7007/
+* 🌐 Portfolio: https://avinash7007.github.io/avinash-portfolio/
