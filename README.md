@@ -1,14 +1,14 @@
-# 📊 Retail Sales & Customer Insights
+# 📊 Retail Sales & Customer Insights  
 
-An end-to-end **Retail Sales & Customer Insights** project focused on analyzing transactional data to uncover trends across sales performance, profitability, fulfillment efficiency, and customer behavior.  
-This project helps stakeholders monitor KPIs, identify growth opportunities, and support data-driven decision-making.
+An end-to-end **Retail Sales & Customer Insights** project focused on analyzing transactional data to understand sales performance, profitability trends, and customer behavior.  
+This project supports KPI monitoring and enables data-driven decision-making through SQL analysis and Power BI dashboards.
 
 ---
 
 ## 📌 Problem Statement
 
-Retail businesses often struggle to track profitability drivers, customer segments, and operational efficiency across regions and product categories.  
-This project analyzes transactional data to identify performance gaps, understand customer behavior, and highlight key revenue drivers.
+Retail businesses often lack clear visibility into sales performance, customer behavior, and profitability across regions and product categories.  
+This project analyzes transactional data to identify trends, monitor KPIs, and support reporting needs.
 
 ---
 
@@ -26,26 +26,22 @@ The dataset contains transactional-level retail data including:
 
 ## 🎯 Key KPIs Tracked
 
-| KPI                           | Description                     |
-| ----------------------------- | ------------------------------- |
-| **Total Sales**               | Total revenue generated         |
-| **Total Profit**              | Net profit across transactions  |
-| **Profit Margin (%)**         | Profit ÷ Sales                  |
-| **Average Order Value (AOV)** | Sales ÷ Orders                  |
-| **Running Total Sales**       | Time-based cumulative trend     |
-| **Average Delivery Time**     | Avg. order-to-delivery duration |
-| **Late Delivery %**           | % delayed shipments             |
-| **Top Products by Sales**     | Highest-performing products     |
-| **Avg Selling Price**         | Avg. selling price per customer |
-| **Orders per Customer**       | Purchase frequency              |
+| KPI | Description |
+|------|-------------|
+| **Total Sales** | Total revenue generated |
+| **Total Profit** | Net profit across transactions |
+| **Profit Margin (%)** | Profit ÷ Sales |
+| **Average Order Value (AOV)** | Sales ÷ Orders |
+| **Running Total Sales** | Time-based cumulative trend |
+| **Orders per Customer** | Purchase frequency |
 
 ---
 
 ## 🛠 Tools & Technologies
 
-- **SQL** — Data extraction and transformation  
-- **Power BI** — Data modeling and analysis  
-- **DAX** — KPI and metric calculations  
+- **SQL (T-SQL)** — Data extraction and transformation (joins, CTEs, window functions)  
+- **Power BI** — Data modeling and dashboard development  
+- **DAX** — KPI calculations (MoM using PREVIOUSMONTH, YoY using SAMEPERIODLASTYEAR)
 
 ---
 
@@ -53,15 +49,17 @@ The dataset contains transactional-level retail data including:
 
 ### 🔹 Sales & Profit Analysis
 
-- Tracks sales growth and profitability trends  
-- Highlights regional performance differences  
-- Identifies underperforming categories  
+- Tracked sales and profitability trends across regions and categories  
+- Analyzed YoY performance using DAX-based measures  
+- Monitored KPIs through interactive dashboards  
+
+---
 
 ### 🔹 Customer Insights Analysis
 
-- Segments customers by value and behavior  
-- Identifies high-frequency and high-value customers  
-- Supports targeted engagement strategies  
+- Segmented customers by behavior and value  
+- Identified new vs. repeat and high-value customer groups  
+- Supported marketing-focused customer analysis  
 
 ---
 
@@ -69,32 +67,18 @@ The dataset contains transactional-level retail data including:
 
 ### 🛍️ Sales Insights
 
-- Seasonal demand patterns observed across time periods  
-- Certain regions contribute disproportionately to revenue  
-
-### 📦 Operational Insights
-
-- Delivery delays observed in selected regions  
-- Fulfillment performance varies across shipping modes  
+- Sales trends varied across regions and product categories  
+- YoY analysis highlighted performance growth patterns  
 
 ### 💰 Profitability Insights
 
-- Some product categories consistently outperform others  
-- Discounts impact margins across segments  
+- Profitability differed across product categories  
+- Discount patterns impacted margins across segments  
 
-### 🧍 Customer Behavior Insights
+### 👥 Customer Insights
 
-- Repeat customers contribute significantly to revenue  
-- High-value segments show strong purchase frequency  
-
----
-
-## 🧠 Business Recommendations
-
-- Optimize logistics in high-delay regions  
-- Promote high-margin product categories  
-- Target repeat and high-value customers with campaigns  
-- Improve pricing and discount strategies  
+- Repeat customers contributed significantly to overall sales  
+- High-value customers showed stronger purchase frequency  
 
 ---
 
@@ -103,6 +87,11 @@ The dataset contains transactional-level retail data including:
 ![Customer Insights Dashboard](https://github.com/user-attachments/assets/72b8eefa-db51-47f4-89e2-03826195df3b)
 
 ![Sales and Profit Dashboard](https://github.com/user-attachments/assets/6f381fb9-5d6d-4f71-a927-ec7039eacfe4)
+
+---
+
+## 📂 Repository Structure
+
 
 ---
 
